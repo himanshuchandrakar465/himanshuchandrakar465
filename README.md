@@ -58,7 +58,7 @@ LangChain • Hugging Face • FastAPI • Docker • Git
 
 ### 📫 Connect With Me  
 - 📧 Email: himanshuchandrakar465@gmail.com  
-- 💼 LinkedIn: https://linkedin.com/in/himanshu-chandrakar  
+- 💼 LinkedIn: www.linkedin.com/in/himanshu-chandrakar-a7b48b222
 - 💻 GitHub: https://github.com/himanshuchandrakar465  
 
 ---
