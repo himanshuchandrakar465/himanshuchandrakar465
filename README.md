@@ -237,7 +237,20 @@ I want to build:
 
 <p align="center">
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,cpp,cs,mysql,fastapi,docker,git,github,linux" />
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,cpp,cs,mysql,fastapi,git,github" />
+
+</p>
+
+<p align="center">
+
+<img src="https://skillicons.dev/icons?i=huggingface" />
+
+</p>
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white" />
+<img src="https://img.shields.io/badge/LangSmith-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" />
 
 </p>
 
