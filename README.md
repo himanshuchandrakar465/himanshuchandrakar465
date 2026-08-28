@@ -236,22 +236,14 @@ I want to build:
 ## 🧰 Technologies I Work With
 
 <p align="center">
-
-<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,cpp,cs,mysql,fastapi,git,github" />
-
+  <img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,cpp,cs,mysql,fastapi,docker,git,github" />
 </p>
 
 <p align="center">
-
-<img src="https://skillicons.dev/icons?i=huggingface" />
-
-</p>
-
-<p align="center">
-
-<img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white" />
-<img src="https://img.shields.io/badge/LangSmith-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" />
-
+  <img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" />
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white" />
+  <img src="https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/LangSmith-1C3C3C?style=for-the-badge" />
 </p>
 
 ---
