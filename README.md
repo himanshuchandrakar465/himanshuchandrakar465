@@ -190,16 +190,137 @@ I want to build:
 
 «"A complete AI system that people can actually use."»
 
+## 📊 GitHub Profile
+
+<table>
+<tr>
+<td><strong>👨‍💻 Focus</strong></td>
+<td>AI / ML Engineering</td>
+</tr>
+<tr>
+<td><strong>🐍 Primary Language</strong></td>
+<td>Python</td>
+</tr>
+<tr>
+<td><strong>🤖 AI</strong></td>
+<td>Machine Learning · Deep Learning · Generative AI</td>
+</tr>
+<tr>
+<td><strong>🧠 LLM</strong></td>
+<td>Transformers · LLM Applications · RAG</td>
+</tr>
+<tr>
+<td><strong>👁️ Computer Vision</strong></td>
+<td>CNNs · GANs · Transfer Learning</td>
+</tr>
+<tr>
+<td><strong>⚡ Frameworks</strong></td>
+<td>PyTorch · TensorFlow · Keras · Scikit-learn</td>
+</tr>
+<tr>
+<td><strong>🔗 AI Frameworks</strong></td>
+<td>LangChain · LangGraph · LangSmith</td>
+</tr>
+<tr>
+<td><strong>⚙️ Backend</strong></td>
+<td>FastAPI</td>
+</tr>
+<tr>
+<td><strong>🐳 Deployment</strong></td>
+<td>Docker · Git</td>
+</tr>
+</table>
+
 ---
 
-📊 GitHub Stats
+## 🧰 Technologies I Work With
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=himanshuchandrakar465&show_icons=true&theme=tokyonight&hide_border=true" height="170"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=himanshuchandrakar465&layout=compact&theme=tokyonight&hide_border=true" height="170"/>
-</p><p align="center">
-  <img src="https://streak-stats.demolab.com?user=himanshuchandrakar465&theme=tokyonight&hide_border=true" />
-</p>---
+
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,cpp,cs,mysql,fastapi,docker,git,github,linux" />
+
+</p>
+
+---
+
+## 🧠 Areas of Interest
+
+**Machine Learning**  
+Supervised Learning · Unsupervised Learning · Feature Engineering · Model Evaluation
+
+**Deep Learning**  
+CNNs · RNNs · LSTMs · Transfer Learning
+
+**Generative AI**  
+GANs · DCGAN · Transformers · LLMs · Prompt Engineering · RAG
+
+**AI Engineering**  
+LangChain · LangGraph · LangSmith · FastAPI · Docker
+
+---
+
+## 🚀 What I'm Building
+
+| Project | Technologies | Status |
+|---|---|---|
+| 🏠 House Rent Prediction | Python · Scikit-learn | ✅ Completed |
+| 📚 Generative AI Book Assistant | PyTorch · Hugging Face | 🚧 Ongoing |
+| 🎨 Image-to-Image GAN | TensorFlow · GANs | ✅ Completed |
+| 🌱 Plant Disease Detection | TensorFlow · Keras · CNN | ✅ Completed |
+
+---
+
+## 🎯 Current Goals
+
+- Build production-ready Generative AI applications
+- Develop advanced RAG systems
+- Build AI agents with LangGraph
+- Improve LLM application development
+- Learn scalable AI system architecture
+- Contribute to open-source AI projects
+
+---
+
+## 🏆 Achievement
+
+**GATE 2025 — Data Science & Artificial Intelligence**
+
+**AIR 14076**
+
+---
+
+## 📚 Education
+
+**Bhilai Institute of Technology (BIT), Raipur**
+
+Bachelor of Engineering — Computer Science  
+**2021 – 2025**
+
+---
+
+## 📫 Connect With Me
+
+<p align="center">
+
+<a href="mailto:himanshuchandrakar465@gmail.com">
+<img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<a href="https://www.linkedin.com/in/himanshu-chandrakar-a7b48b222/">
+<img src="https://img.shields.io/badge/LinkedIn-Himanshu%20Chandrakar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://github.com/himanshuchandrakar465">
+<img src="https://img.shields.io/badge/GitHub-Himanshu-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+</p>
+
+---
+
+<p align="center">
+<strong>🤖 I don't just train models — I build systems that solve real problems.</strong>
+</p>
 
 🏆 Achievement
 
