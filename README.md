@@ -360,21 +360,6 @@ Bachelor of Engineering — Computer Science
 
 ---
 
-🌐 Connect With Me
-
-<p align="center"><a href="mailto:himanshuchandrakar465@gmail.com">
-<img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a><a href="https://www.linkedin.com/in/himanshu-chandrakar-a7b48b222/">
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a><a href="https://github.com/himanshuchandrakar465">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a></p>---
-
-⚡ Fun Fact
-
-I don't just train models...
-I train them to solve real problems. 🤖🚀
-
 <p align="center">
   <b>Thanks for visiting my profile! ⭐</b>
 </p><p align="center">
