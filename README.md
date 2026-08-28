@@ -231,6 +231,10 @@ I want to build:
 </tr>
 </table>
 
+<p align="center">
+  <img src="./output/github-contribution-grid-snake.svg" alt="GitHub Contribution Snake">
+</p>
+
 ---
 
 ## 🧰 Technologies I Work With
