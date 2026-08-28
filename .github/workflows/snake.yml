@@ -1,9 +1,9 @@
 name: Generate Contribution Snake
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,16 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Generate snake
         uses: Platane/snk@v3
         with:
           github_user_name: himanshuchandrakar465
           outputs: |
             output/github-contribution-grid-snake.svg
-            output/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Push generated files
-        uses: EndBug/add-and-commit@v9
+      - name: Commit snake
+        uses: EndBug/add-and-commit@v10
         with:
           message: "Update contribution snake"
-          add: "output/*.svg"
+          add: "output/github-contribution-grid-snake.svg"
