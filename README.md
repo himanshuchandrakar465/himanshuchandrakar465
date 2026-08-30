@@ -290,23 +290,6 @@ LangChain · LangGraph · LangSmith · FastAPI · Docker
 
 ---
 
-## 🏆 Achievement
-
-**GATE 2025 — Data Science & Artificial Intelligence**
-
-**AIR 14076**
-
----
-
-## 📚 Education
-
-**Bhilai Institute of Technology (BIT), Raipur**
-
-Bachelor of Engineering — Computer Science  
-**2021 – 2025**
-
----
-
 ## 📫 Connect With Me
 
 <p align="center">
