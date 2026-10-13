@@ -605,7 +605,9 @@ def render_themes(renderer):
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "static"
     if cmd == "static":
-        render_themes(lambda: (banner(), buttons(), tech_stack(), now_widget(), delivery_widget()))
+        # The hero banner is a hand-selected SVG and is intentionally kept
+        # outside the generator so a static refresh cannot replace it.
+        render_themes(lambda: (buttons(), tech_stack(), now_widget(), delivery_widget()))
     elif cmd == "reset":
         render_themes(lambda: (stats_card(None), languages_card(None), activity_chart(None), rhythm_card(None), placeholder_snake()))
     elif cmd == "stats":
