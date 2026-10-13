@@ -32,6 +32,19 @@ I build practical AI systems - from preparing data and training deep-learning mo
   <img src="assets/tech-stack.svg" alt="Technical skills: Python, SQL, C++, machine learning, deep learning, LLM applications, vector search, Django, HTML, CSS, JavaScript, FastAPI, Streamlit, Docker and GitHub." width="100%" />
 </picture>
 
+## Building now
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/now-dark.svg" />
+    <img src="assets/now.svg" alt="Currently building MiniGPT in PyTorch and preparing to serve models with FastAPI and Django" width="49%" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/delivery-map-dark.svg" />
+    <img src="assets/delivery-map.svg" alt="AI delivery map from data through models and retrieval to Django applications" width="49%" />
+  </picture>
+</p>
+
 ## Selected work
 
 <table>
@@ -98,6 +111,13 @@ See more in my [GitHub repositories](https://github.com/himanshuchandrakar465?ta
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/activity-dark.svg" />
     <img src="assets/activity.svg" alt="Weekly GitHub contribution activity over the last 12 months" width="100%" />
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/rhythm-dark.svg" />
+    <img src="assets/rhythm.svg" alt="GitHub contribution rhythm: active weeks, peak week, weekly average, recent activity and a 12-week bar chart" width="100%" />
   </picture>
 </p>
 

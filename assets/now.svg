@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="407" height="188" viewBox="0 0 407 188" role="img" aria-label="Building now">
+<title>Building now</title>
+<desc>MiniGPT in PyTorch, with FastAPI and Django model serving next.</desc>
+<defs></defs>
+<style>text{font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;}.pulse{animation:status 2.6s ease-in-out infinite}@keyframes status{0%,100%{opacity:.42}50%{opacity:1}}@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:1}}</style>
+<rect x="0.5" y="0.5" width="406" height="187" rx="14" fill="#f6f8fa" stroke="#d0d7de"/><text x="24" y="36" font-size="15" font-weight="600" fill="#1f2328">Building now</text><circle class="pulse" cx="29" cy="66" r="5" fill="#1a7f37"/><text x="42" y="71" font-size="14" font-weight="700" fill="#1f2328">MiniGPT from scratch</text><text x="42" y="91" font-size="12" fill="#57606a">PyTorch · self-attention · Transformer blocks</text><line x1="24" y1="112" x2="383" y2="112" stroke="#d8dee4"/><text x="24" y="139" font-size="11.5" fill="#6e7781">NEXT UP</text><text x="24" y="162" font-size="13" font-weight="600" fill="#0969da">Model serving with FastAPI and Django</text>
+</svg>

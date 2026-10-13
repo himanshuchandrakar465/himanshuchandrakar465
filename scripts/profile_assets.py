@@ -139,23 +139,39 @@ def text_width(s, size, weight=500):
 # ----------------------------------------------------------------------------
 def banner():
     W, H = 1000, 250
-    # A small contribution-grid motif nods to GitHub without the generic
-    # "AI network" artwork that makes a portfolio feel templated.
-    cells = []
-    for col in range(8):
-        for row in range(5):
-            level = (col * 3 + row * 2) % 5
-            colours = [C["rule"], C["grid"], C["soft"], C["blue"], C["green"]]
-            opacity = [1, 0.75, 0.62, 0.78, 1][level]
-            cells.append(
-                f'<rect x="{735 + col * 28}" y="{58 + row * 28}" width="18" height="18" rx="3" '
-                f'fill="{colours[level]}" fill-opacity="{opacity}"/>'
+    # A compact animated neural network gives the hero motion without relying
+    # on a remote animation service. Signals travel along the model graph.
+    layers = [
+        (650, [88, 142, 196]),
+        (735, [66, 104, 142, 180, 218]),
+        (830, [88, 142, 196]),
+        (920, [142]),
+    ]
+    links, nodes = [], []
+    for current, following in zip(layers, layers[1:]):
+        x1, ys1 = current
+        x2, ys2 = following
+        for y1 in ys1:
+            for y2 in ys2:
+                links.append(
+                    f'<path class="net-line" d="M{x1},{y1} C{x1+28},{y1} {x2-28},{y2} {x2},{y2}"/>'
+                )
+    for li, (x, ys) in enumerate(layers):
+        colour = [C["violet"], C["blue"], C["teal"], C["green"]][li]
+        for i, y in enumerate(ys):
+            nodes.append(
+                f'<circle class="net-node" style="animation-delay:{(li * .45 + i * .18):.2f}s" '
+                f'cx="{x}" cy="{y}" r="7" fill="{C["bg1"]}" stroke="{colour}" stroke-width="2.5"/>'
             )
     defs = f'<clipPath id="clip"><rect width="{W}" height="{H}" rx="12"/></clipPath>'
     style = (
         ".pulse{animation:status 2.6s ease-in-out infinite}"
+        ".net-line{fill:none;stroke:" + C["blue"] + ";stroke-width:1.35;stroke-opacity:.5;stroke-dasharray:3 6;animation:signal 3.6s linear infinite}"
+        ".net-node{animation:node 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}"
         "@keyframes status{0%,100%{opacity:.42}50%{opacity:1}}"
-        "@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:1}}"
+        "@keyframes signal{to{stroke-dashoffset:-54}}"
+        "@keyframes node{0%,100%{opacity:.58;transform:scale(.86)}50%{opacity:1;transform:scale(1.14)}}"
+        "@media (prefers-reduced-motion:reduce){.pulse,.net-line,.net-node{animation:none;opacity:1}}"
     )
     body = f"""
 <g clip-path="url(#clip)">
@@ -167,8 +183,10 @@ def banner():
   <text x="82" y="132" font-size="38" font-weight="700" fill="{C['text']}" letter-spacing="-0.5">{esc(NAME)}</text>
   <text x="82" y="166" font-size="18" font-weight="600" fill="{C['blue']}">{esc(ROLE)}</text>
   <text x="82" y="198" font-size="14.5" fill="{C['sub']}">{esc(TAGLINE)}</text>
-  <text x="735" y="42" font-size="11" font-weight="700" letter-spacing="1.2" fill="{C['muted']}">BUILDING IN PUBLIC</text>
-  {''.join(cells)}
+  <text x="650" y="42" font-size="11" font-weight="700" letter-spacing="1.2" fill="{C['muted']}">NEURAL NETWORK · LIVE SIGNALS</text>
+  <g>{''.join(links)}</g>
+  <g>{''.join(nodes)}</g>
+  <text x="920" y="174" text-anchor="middle" font-size="10.5" fill="{C['muted']}">OUTPUT</text>
 </g>
 <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{C['line']}"/>"""
     write("banner.svg", svg(W, H, body, f"{NAME}, {ROLE}", TAGLINE, defs, style))
@@ -231,6 +249,54 @@ def tech_stack():
     H = int(y - cat_gap + PAD)
     body = card_bg(W, H, 16) + "".join(parts)
     write("tech-stack.svg", svg(W, H, body, "Tech stack", "; ".join(names)))
+
+
+def now_widget():
+    """A compact recruiter-facing widget for the work currently in progress."""
+    W, H = 407, 188
+    out = [
+        card_bg(W, H),
+        f'<text x="24" y="36" font-size="15" font-weight="600" fill="{C["text"]}">Building now</text>',
+        f'<circle class="pulse" cx="29" cy="66" r="5" fill="{C["green"]}"/>',
+        f'<text x="42" y="71" font-size="14" font-weight="700" fill="{C["text"]}">MiniGPT from scratch</text>',
+        f'<text x="42" y="91" font-size="12" fill="{C["sub"]}">PyTorch · self-attention · Transformer blocks</text>',
+        f'<line x1="24" y1="112" x2="{W-24}" y2="112" stroke="{C["rule"]}"/>',
+        f'<text x="24" y="139" font-size="11.5" fill="{C["muted"]}">NEXT UP</text>',
+        f'<text x="24" y="162" font-size="13" font-weight="600" fill="{C["blue"]}">Model serving with FastAPI and Django</text>',
+    ]
+    style = (
+        ".pulse{animation:status 2.6s ease-in-out infinite}"
+        "@keyframes status{0%,100%{opacity:.42}50%{opacity:1}}"
+        "@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:1}}"
+    )
+    write("now.svg", svg(W, H, "".join(out), "Building now",
+                         "MiniGPT in PyTorch, with FastAPI and Django model serving next.", style=style))
+
+
+def delivery_widget():
+    """Show the production path without turning the README into a wall of text."""
+    W, H = 407, 188
+    stages = [
+        ("Data", "Pandas", C["blue"]),
+        ("Models", "PyTorch", C["violet"]),
+        ("Retrieval", "Pinecone", C["teal"]),
+        ("Apps", "Django", C["green"]),
+    ]
+    xs = [50, 150, 255, 357]
+    out = [
+        card_bg(W, H),
+        f'<text x="24" y="36" font-size="15" font-weight="600" fill="{C["text"]}">AI delivery map</text>',
+        f'<text x="24" y="57" font-size="11.5" fill="{C["muted"]}">From data to an application people can use</text>',
+        f'<line x1="{xs[0]}" y1="106" x2="{xs[-1]}" y2="106" stroke="{C["rule"]}" stroke-width="3" stroke-linecap="round"/>',
+    ]
+    for (label, tool, colour), x in zip(stages, xs):
+        out.append(
+            f'<circle cx="{x}" cy="106" r="11" fill="{C["card"]}" stroke="{colour}" stroke-width="3"/>'
+            f'<text x="{x}" y="139" text-anchor="middle" font-size="12" font-weight="700" fill="{C["text"]}">{label}</text>'
+            f'<text x="{x}" y="158" text-anchor="middle" font-size="11.5" fill="{C["sub"]}">{tool}</text>'
+        )
+    write("delivery-map.svg", svg(W, H, "".join(out), "AI delivery map",
+                                  "Data, models, retrieval and applications."))
 
 
 # ----------------------------------------------------------------------------
@@ -320,12 +386,17 @@ def summarise(user):
     weekly = []
     for w in cal["weeks"]:
         weekly.append((w["contributionDays"][0]["date"], sum(d["contributionCount"] for d in w["contributionDays"])))
+    week_counts = [count for _, count in weekly]
 
     return dict(
         contributions=cal["totalContributions"], commits=cc["totalCommitContributions"],
         prs=cc["totalPullRequestContributions"], repos=user["repositories"]["totalCount"],
         stars=sum(r["stargazerCount"] for r in repos), followers=user["followers"]["totalCount"],
         current=current, longest=longest, langs=langs, weekly=weekly,
+        active_weeks=sum(count > 0 for count in week_counts),
+        peak_week=max(week_counts, default=0),
+        weekly_average=(sum(week_counts) / len(week_counts)) if week_counts else 0,
+        recent_four_weeks=sum(week_counts[-4:]),
     )
 
 
@@ -478,6 +549,44 @@ def activity_chart(d):
                               "Weekly contributions over the last 12 months.", defs))
 
 
+def rhythm_card(d):
+    """A second GitHub widget: meaningful weekly signals, not just vanity totals."""
+    W, H = 830, 184
+    ph = d is None
+    weekly = [0] * 12 if ph else [count for _, count in d["weekly"][-12:]]
+    peak = max(weekly, default=0) or 1
+    values = [
+        ("–" if ph else str(d["active_weeks"]), "active weeks"),
+        ("–" if ph else str(d["peak_week"]), "peak week"),
+        ("–" if ph else f"{d['weekly_average']:.1f}", "average / week"),
+        ("–" if ph else str(d["recent_four_weeks"]), "last 4 weeks"),
+    ]
+    metric_x = [28, 214, 400, 586]
+    out = [
+        card_bg(W, H, 16),
+        f'<text x="28" y="38" font-size="15" font-weight="600" fill="{C["text"]}">Contribution rhythm</text>',
+        f'<text x="{W-28}" y="38" text-anchor="end" font-size="11.5" fill="{C["muted"]}">Most recent 12 weeks</text>',
+    ]
+    for x, (value, label) in zip(metric_x, values):
+        out.append(
+            f'<text x="{x}" y="76" font-size="24" font-weight="700" fill="{C["text"]}">{value}</text>'
+            f'<text x="{x}" y="96" font-size="12" fill="{C["sub"]}">{label}</text>'
+        )
+    out.append(f'<line x1="28" y1="116" x2="{W-28}" y2="116" stroke="{C["rule"]}"/>')
+    bar_w, gap, x0, base = 45, 17, 28, 162
+    for i, count in enumerate(weekly):
+        height = 3 if ph else max(3, round(count / peak * 34))
+        colour = C["blue"] if i < 8 else C["teal"]
+        out.append(
+            f'<rect x="{x0 + i * (bar_w + gap)}" y="{base-height}" width="{bar_w}" height="{height}" '
+            f'rx="3" fill="{colour}" fill-opacity="{0.34 if ph else 0.9}"/>'
+        )
+    if ph:
+        out.append(f'<text x="{W-28}" y="137" text-anchor="end" font-size="11" fill="{C["muted"]}">Updates after first workflow run</text>')
+    write("rhythm.svg", svg(W, H, "".join(out), "Contribution rhythm",
+                            "Active weeks, peak week, average weekly contributions, and recent activity."))
+
+
 def placeholder_snake():
     W, H = 830, 150
     body = (card_bg(W, H, 16) +
@@ -496,15 +605,15 @@ def render_themes(renderer):
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "static"
     if cmd == "static":
-        render_themes(lambda: (banner(), buttons(), tech_stack()))
+        render_themes(lambda: (banner(), buttons(), tech_stack(), now_widget(), delivery_widget()))
     elif cmd == "reset":
-        render_themes(lambda: (stats_card(None), languages_card(None), activity_chart(None), placeholder_snake()))
+        render_themes(lambda: (stats_card(None), languages_card(None), activity_chart(None), rhythm_card(None), placeholder_snake()))
     elif cmd == "stats":
         token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
         if not token:
             raise SystemExit("Set GH_TOKEN (the workflow does this automatically).")
         data = summarise(gql(token))
-        render_themes(lambda: (stats_card(data), languages_card(data), activity_chart(data)))
+        render_themes(lambda: (stats_card(data), languages_card(data), activity_chart(data), rhythm_card(data)))
     else:
         raise SystemExit(__doc__)
 
