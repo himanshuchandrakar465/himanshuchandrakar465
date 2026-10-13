@@ -1,100 +1,119 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Himanshu Chandrakar, AI / ML Engineer" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg" />
+  <img src="assets/banner.svg" alt="Himanshu Chandrakar - AI and machine learning engineer" width="100%" />
+</picture>
 
 <p>
-  <a href="mailto:himanshuchandrakar465@gmail.com"><img src="assets/btn-email.svg" alt="Email Himanshu" height="36" /></a>
-  <a href="https://www.linkedin.com/in/himanshu-chandrakar-a7b48b222/"><img src="assets/btn-linkedin.svg" alt="Himanshu on LinkedIn" height="36" /></a>
-  <a href="https://github.com/himanshuchandrakar465"><img src="assets/btn-github.svg" alt="Himanshu on GitHub" height="36" /></a>
+  <a href="mailto:himanshuchandrakar465@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-email-dark.svg" /><img src="assets/btn-email.svg" alt="Email Himanshu" height="36" /></picture></a>
+  <a href="https://www.linkedin.com/in/himanshu-chandrakar-a7b48b222/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-linkedin-dark.svg" /><img src="assets/btn-linkedin.svg" alt="Himanshu on LinkedIn" height="36" /></picture></a>
+  <a href="https://github.com/himanshuchandrakar465"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-github-dark.svg" /><img src="assets/btn-github.svg" alt="Himanshu on GitHub" height="36" /></picture></a>
 </p>
 
 </div>
 
-## About
+## AI/ML engineer focused on useful products
 
-I'm an AI/ML engineer who likes to own the whole path from data to a working application: preparing data, training and evaluating models, wiring up retrieval and agents, and shipping something people can use.
-
-My recent work centers on LLM applications, including RAG pipelines on Pinecone and multi-step agents in LangGraph, alongside deep-learning models in TensorFlow and PyTorch.
-
-I'm open to AI/ML engineering roles. Email is the quickest way to reach me.
-
-- **Education:** B.E. in Computer Science, Bhilai Institute of Technology, Raipur (2021 to 2025)
-- **GATE 2025:** Data Science and Artificial Intelligence, All India Rank 14076
-- **Certifications:** Machine Learning, TensorFlow, PyTorch
-- **Currently:** building a GPT from scratch in PyTorch and learning FastAPI for serving models
-
-## Tech stack
-
-<img src="assets/tech-stack.svg" alt="Tech stack. Languages: Python, SQL, C++. Machine learning: Scikit-learn, feature engineering, model evaluation. Deep learning: TensorFlow, Keras, PyTorch, CNNs, RNNs and LSTMs, Transformers, GANs, transfer learning. Generative AI: LangChain, LangGraph, LangSmith, RAG, Hugging Face, prompt engineering, AI agents, Groq. Vector search: Pinecone, embeddings, semantic search. Data and tools: Git, GitHub, Docker, Streamlit, Jupyter, OpenCV, NumPy, Pandas, Matplotlib." width="100%" />
-
-## Featured projects
+I build practical AI systems - from preparing data and training deep-learning models to retrieval, agent workflows, and deployable applications. My recent work combines LLM applications, vector search, and computer vision with a clear focus on reliable, usable outcomes.
 
 <table>
-<tr>
-<td width="50%" valign="top">
-<b>News Brief Desk</b>: AI-powered newsroom workflow<br/>
-<sub>Streamlit · LangChain · Pinecone · Groq · Tavily</sub>
-<p>A Streamlit app for AI-assisted news research and article writing. Pinecone vector search with embeddings drives retrieval-based (RAG) answers, while Groq LLMs and Tavily search gather information and draft articles. A role-based workflow keeps research and writing as separate steps. Deployed as a live app.</p>
-</td>
-<td width="50%" valign="top">
-<b>Agentic AI Research Assistant</b><br/>
-<sub>LangChain · LangGraph · LangSmith</sub>
-<p>A multi-step LangGraph agent that plans and executes research tasks. It combines tool calling, memory and retrieval, and passes results between steps through stateful workflows. LangSmith traces make every run easy to debug.</p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<b>PixelBoost</b>: deep-learning image de-pixelation<br/>
-<sub>TensorFlow · Keras · OpenCV</sub>
-<p>A Residual U-Net (about 5.2M parameters) that restores pixelated images. The encoder-decoder uses residual blocks and skip connections to preserve fine detail, and the code is split into model, training and inference steps.</p>
-</td>
-<td width="50%" valign="top">
-<b>RAG Document Q&amp;A</b><br/>
-<sub>LangChain · Hugging Face</sub>
-<p>A retrieval-augmented pipeline for question answering over documents. Hugging Face embeddings and semantic search retrieve the relevant context, which is combined with an LLM prompt so that answers stay grounded in the document.</p>
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-<b>Plant Disease Classification</b><br/>
-<sub>TensorFlow · Keras · OpenCV</sub>
-<p>A custom 3-block CNN with dropout and the Adam optimizer, classifying plant diseases from 128×128 images. Built on a tf.data pipeline with model checkpoints, trained on the New Plant Diseases (Augmented) dataset and evaluated with a confusion matrix. Reaches about 0.95 accuracy and 0.90 recall.</p>
-</td>
-<td width="50%" valign="top">
-<b>MiniGPT</b>: Let's Build GPT (in progress)<br/>
-<sub>Python · PyTorch · Transformers</sub>
-<p>A small GPT language model built from scratch in PyTorch, following Andrej Karpathy's &quot;Let's Build GPT&quot; lecture. Covers self-attention, multi-head attention, Transformer blocks, the training loop and text generation.</p>
-</td>
-</tr>
+  <tr>
+    <td width="33%"><b>Current focus</b><br /><sub>LLM applications, RAG, LangGraph agents</sub></td>
+    <td width="33%"><b>Education</b><br /><sub>B.E. Computer Science, BIT Raipur (2021-2025)</sub></td>
+    <td width="33%"><b>Achievement</b><br /><sub>GATE 2025 DS &amp; AI - AIR 14,076</sub></td>
+  </tr>
 </table>
 
-Source code for these projects is in my [repositories](https://github.com/himanshuchandrakar465?tab=repositories).
+## Skills and tools
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tech-stack-dark.svg" />
+  <img src="assets/tech-stack.svg" alt="Technical skills: Python, SQL, C++, machine learning, deep learning, LLM applications, vector search, Django, HTML, CSS, JavaScript, FastAPI, Streamlit, Docker and GitHub." width="100%" />
+</picture>
+
+## Selected work
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <b>News Brief Desk</b><br />
+      <sub>Streamlit · LangChain · Pinecone · Groq · Tavily</sub>
+      <br /><br />
+      An AI-assisted newsroom workflow that separates research from writing. Retrieval through Pinecone and embeddings supports grounded answers; Groq and Tavily help turn research into publishable drafts.
+    </td>
+    <td width="50%" valign="top">
+      <b>Agentic AI Research Assistant</b><br />
+      <sub>LangChain · LangGraph · LangSmith</sub>
+      <br /><br />
+      A stateful research agent that plans tasks, uses tools and memory, and passes results through a multi-step LangGraph workflow. LangSmith traces support straightforward debugging.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <b>PixelBoost</b><br />
+      <sub>TensorFlow · Keras · OpenCV</sub>
+      <br /><br />
+      A 5.2M-parameter Residual U-Net for image de-pixelation. Residual blocks and skip connections preserve fine detail across model, training, and inference stages.
+    </td>
+    <td width="50%" valign="top">
+      <b>Plant Disease Classification</b><br />
+      <sub>TensorFlow · Keras · OpenCV</sub>
+      <br /><br />
+      A custom CNN for 128×128 plant-disease images, trained with a tf.data pipeline and checkpoints. The evaluated model reached approximately 95% accuracy and 90% recall.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <b>RAG Document Q&amp;A</b><br />
+      <sub>LangChain · Hugging Face</sub>
+      <br /><br />
+      A document question-answering pipeline that retrieves relevant context with embeddings and semantic search, then grounds LLM responses in the source material.
+    </td>
+    <td width="50%" valign="top">
+      <b>MiniGPT</b> <sub>(in progress)</sub><br />
+      <sub>Python · PyTorch · Transformers</sub>
+      <br /><br />
+      A compact GPT built from scratch to deepen understanding of self-attention, Transformer blocks, training loops, and text generation.
+    </td>
+  </tr>
+</table>
+
+See more in my [GitHub repositories](https://github.com/himanshuchandrakar465?tab=repositories).
 
 ## GitHub activity
 
 <p align="center">
-  <img src="assets/stats.svg" alt="GitHub at a glance: contributions, commits, pull requests, repositories, stars, followers and streaks" width="49.4%" />
-  <img src="assets/languages.svg" alt="Top languages by code size across public repositories" width="49.4%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg" />
+    <img src="assets/stats.svg" alt="GitHub statistics: contributions, commits, pull requests, public repositories, stars, followers and streaks" width="49%" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/languages-dark.svg" />
+    <img src="assets/languages.svg" alt="Top programming languages across public repositories" width="49%" />
+  </picture>
 </p>
 
 <p align="center">
-  <img src="assets/activity.svg" alt="Weekly contribution activity over the last 12 months" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/activity-dark.svg" />
+    <img src="assets/activity.svg" alt="Weekly GitHub contribution activity over the last 12 months" width="100%" />
+  </picture>
 </p>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="assets/snake.svg" />
-    <img alt="Contribution graph animated as a snake eating the contributions" src="assets/snake.svg" width="100%" />
+    <img src="assets/snake.svg" alt="Animated snake moving through the GitHub contribution graph" width="100%" />
   </picture>
 </p>
 
-<p align="center">
-  <sub>These graphics are generated from the GitHub API by a scheduled workflow and refreshed daily. None of them depend on an external image service.</sub>
-</p>
+<div align="center">
+  <sub>Activity widgets refresh daily from the GitHub API. The contribution snake is generated by GitHub Actions.</sub>
+</div>
 
 ---
 
 <div align="center">
-  <sub>Open to AI/ML engineering roles · <a href="mailto:himanshuchandrakar465@gmail.com">himanshuchandrakar465@gmail.com</a></sub>
+  <sub>Open to AI/ML engineering opportunities · <a href="mailto:himanshuchandrakar465@gmail.com">himanshuchandrakar465@gmail.com</a></sub>
 </div>

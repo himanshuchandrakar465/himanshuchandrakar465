@@ -1,0 +1,59 @@
+name: Refresh profile assets
+
+on:
+  schedule:
+    # Daily, at 00:17 UTC. GitHub may delay scheduled jobs during busy periods.
+    - cron: "17 0 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - scripts/profile_assets.py
+      - .github/workflows/profile-assets.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-assets
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Generate animated contribution snake
+        uses: Platane/snk/svg-only@v3
+        continue-on-error: true
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+
+      - name: Generate activity widgets
+        env:
+          GITHUB_USER: ${{ github.repository_owner }}
+          GH_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN || github.token }}
+        run: python3 scripts/profile_assets.py stats
+
+      - name: Save refreshed assets
+        if: ${{ !cancelled() }}
+        run: |
+          if [ -f dist/snake.svg ]; then cp dist/snake.svg assets/snake.svg; fi
+          if [ -f dist/snake-dark.svg ]; then cp dist/snake-dark.svg assets/snake-dark.svg; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --staged --quiet; then
+            echo "Profile assets are already current."
+          else
+            git commit -m "chore: refresh profile assets"
+            git push
+          fi

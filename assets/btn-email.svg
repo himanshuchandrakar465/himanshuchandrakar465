@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="104" height="40" viewBox="0 0 104 40" role="img" aria-label="Email">
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="40" viewBox="0 0 110 40" role="img" aria-label="Email">
 <title>Email</title>
 <desc></desc>
 <defs></defs>
 <style>text{font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;}</style>
-<rect x="0.5" y="0.5" width="103" height="39" rx="10" fill="#0F1730" stroke="#24304F"/><g transform="translate(20 12)"><rect x="1.5" y="3" width="13" height="10" rx="2" fill="none" stroke="#22D3B6" stroke-width="1.5"/><path d="M2.2 4.6 8 9l5.8-4.4" fill="none" stroke="#22D3B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><text x="46" y="25" font-size="14" font-weight="600" fill="#E8EEFB">Email</text>
+<rect x="0.5" y="0.5" width="109" height="39" rx="10" fill="#f6f8fa" stroke="#d0d7de"/><g transform="translate(20 12)"><rect x="1.5" y="3" width="13" height="10" rx="2" fill="none" stroke="#1a7f37" stroke-width="1.5"/><path d="M2.2 4.6 8 9l5.8-4.4" fill="none" stroke="#1a7f37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><text x="46" y="25" font-size="14" font-weight="600" fill="#1f2328">Email</text>
 </svg>

@@ -3,5 +3,5 @@
 <desc>Share of code by language across public repositories.</desc>
 <defs></defs>
 <style>text{font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;}</style>
-<rect x="0.5" y="0.5" width="406" height="251" rx="14" fill="#0F1730" stroke="#24304F"/><text x="24" y="36" font-size="15" font-weight="600" fill="#E8EEFB">Top languages</text><clipPath id="bar"><rect x="24" y="54" width="359" height="10" rx="5"/></clipPath><rect x="24" y="54" width="359" height="10" rx="5" fill="#1B2644"/><text x="203.5" y="150" text-anchor="middle" font-size="13" fill="#8190B3">Filled in by the first workflow run</text><text x="24" y="232" font-size="11" fill="#8190B3">By code size · public repositories, forks excluded</text>
+<rect x="0.5" y="0.5" width="406" height="251" rx="14" fill="#f6f8fa" stroke="#d0d7de"/><text x="24" y="36" font-size="15" font-weight="600" fill="#1f2328">Top languages</text><clipPath id="bar"><rect x="24" y="54" width="359" height="10" rx="5"/></clipPath><rect x="24" y="54" width="359" height="10" rx="5" fill="#d8dee4"/><text x="203.5" y="150" text-anchor="middle" font-size="13" fill="#6e7781">Filled in by the first workflow run</text><text x="24" y="232" font-size="11" fill="#6e7781">By code size · public repositories, forks excluded</text>
 </svg>

@@ -9,6 +9,7 @@ Generates every graphic used by the profile README.
 
 Only the Python standard library is used. Every image is a self-contained SVG
 written into ./assets, so the README never depends on a third-party image service.
+Every card is emitted in light and dark variants for GitHub's two themes.
 """
 import datetime as dt
 import json
@@ -44,8 +45,8 @@ STACK = [
     ("Generative AI", "pink", ["LangChain", "LangGraph", "LangSmith", "RAG", "Hugging Face",
                                "Prompt Engineering", "AI Agents", "Groq"]),
     ("Vector Search", "amber", ["Pinecone", "Embeddings", "Semantic Search"]),
-    ("Data & Tools", "blue", ["Git", "GitHub", "Docker", "Streamlit", "Jupyter", "OpenCV",
-                              "NumPy", "Pandas", "Matplotlib"]),
+    ("Web & Delivery", "green", ["Django", "FastAPI", "HTML", "CSS", "JavaScript", "Streamlit"]),
+    ("Data & Tools", "blue", ["Git", "GitHub", "Docker", "Jupyter", "OpenCV", "NumPy", "Pandas", "Matplotlib"]),
 ]
 
 # Notebook files are Python code; count them as Python in the language chart.
@@ -56,12 +57,33 @@ FALLBACK_LANG_COLOURS = {"Python": "#3572A5"}
 # ----------------------------------------------------------------------------
 # Design tokens
 # ----------------------------------------------------------------------------
-C = dict(
-    bg0="#0A0F1E", bg1="#101D3F", card="#0F1730", line="#24304F", rule="#1B2644",
-    text="#E8EEFB", sub="#B4C0DB", muted="#8190B3",
-    blue="#5B8CFF", teal="#22D3B6", violet="#A78BFA", pink="#F472B6", amber="#FBBF24",
-)
+# GitHub's own visual language: neutral surfaces and familiar blue, green,
+# purple and yellow accents.  Separate files are more reliable than CSS media
+# queries inside an SVG after GitHub proxies it through camo.
+THEMES = {
+    "light": dict(
+        bg0="#ffffff", bg1="#f6f8fa", card="#f6f8fa", chip="#ffffff",
+        line="#d0d7de", rule="#d8dee4", text="#1f2328", sub="#57606a", muted="#6e7781",
+        blue="#0969da", teal="#1a7f37", green="#1a7f37", violet="#8250df", pink="#bf3989", amber="#9a6700",
+        soft="#ddf4ff", grid="#d8dee4",
+    ),
+    "dark": dict(
+        bg0="#0d1117", bg1="#161b22", card="#161b22", chip="#0d1117",
+        line="#30363d", rule="#21262d", text="#f0f6fc", sub="#c9d1d9", muted="#8b949e",
+        blue="#58a6ff", teal="#3fb950", green="#3fb950", violet="#d2a8ff", pink="#ff7bcb", amber="#d29922",
+        soft="#0d419d", grid="#21262d",
+    ),
+}
+C = dict(THEMES["light"])
+OUTPUT_SUFFIX = ""
 FONT = "'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+
+
+def set_theme(name):
+    """Select colours and a filename suffix for one complete render pass."""
+    global C, OUTPUT_SUFFIX
+    C = dict(THEMES[name])
+    OUTPUT_SUFFIX = "" if name == "light" else "-dark"
 
 
 def esc(s):
@@ -86,6 +108,8 @@ def card_bg(w, h, r=14):
 
 def write(name, content):
     ASSETS.mkdir(parents=True, exist_ok=True)
+    if OUTPUT_SUFFIX and name.endswith(".svg"):
+        name = f"{name[:-4]}{OUTPUT_SUFFIX}.svg"
     path = ASSETS / name
     if path.exists() and path.read_text(encoding="utf-8") == content:
         return
@@ -114,55 +138,39 @@ def text_width(s, size, weight=500):
 # STATIC ASSETS
 # ----------------------------------------------------------------------------
 def banner():
-    W, H = 830, 240
-    layers, xs = [3, 5, 5, 3], [590, 660, 730, 800]
-    gaps = {3: 50, 5: 34}
-    pos = []
-    for n, x in zip(layers, xs):
-        pos.append([(x, 120 + (i - (n - 1) / 2) * gaps[n]) for i in range(n)])
-
-    edges = []
-    for a, b in zip(pos, pos[1:]):
-        for (x1, y1) in a:
-            for (x2, y2) in b:
-                edges.append(f'<line x1="{x1}" y1="{y1:.1f}" x2="{x2}" y2="{y2:.1f}"/>')
-    glows, nodes = [], []
-    for li, layer in enumerate(pos):
-        colour = C["teal"] if li == len(pos) - 1 else C["blue"]
-        for (x, y) in layer:
-            glows.append(f'<circle class="g" style="animation-delay:{li*0.45:.2f}s" '
-                         f'cx="{x}" cy="{y:.1f}" r="12" fill="{colour}"/>')
-            nodes.append(f'<circle cx="{x}" cy="{y:.1f}" r="5" fill="{C["bg0"]}" '
-                         f'stroke="{colour}" stroke-width="1.8"/>')
-
-    defs = f"""
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="{C['bg0']}"/><stop offset="1" stop-color="{C['bg1']}"/>
-</linearGradient>
-<radialGradient id="halo" cx="0.84" cy="0.5" r="0.5">
-  <stop offset="0" stop-color="{C['blue']}" stop-opacity="0.26"/>
-  <stop offset="1" stop-color="{C['blue']}" stop-opacity="0"/>
-</radialGradient>
-<linearGradient id="ac" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="{C['blue']}"/><stop offset="1" stop-color="{C['teal']}"/>
-</linearGradient>
-<clipPath id="clip"><rect width="{W}" height="{H}" rx="16"/></clipPath>"""
-    style = (".g{opacity:0;animation:fp 4.8s ease-in-out infinite}"
-             "@keyframes fp{0%{opacity:0}9%{opacity:.55}26%{opacity:0}100%{opacity:0}}"
-             "@media (prefers-reduced-motion:reduce){.g{animation:none;opacity:.14}}")
+    W, H = 1000, 250
+    # A small contribution-grid motif nods to GitHub without the generic
+    # "AI network" artwork that makes a portfolio feel templated.
+    cells = []
+    for col in range(8):
+        for row in range(5):
+            level = (col * 3 + row * 2) % 5
+            colours = [C["rule"], C["grid"], C["soft"], C["blue"], C["green"]]
+            opacity = [1, 0.75, 0.62, 0.78, 1][level]
+            cells.append(
+                f'<rect x="{735 + col * 28}" y="{58 + row * 28}" width="18" height="18" rx="3" '
+                f'fill="{colours[level]}" fill-opacity="{opacity}"/>'
+            )
+    defs = f'<clipPath id="clip"><rect width="{W}" height="{H}" rx="12"/></clipPath>'
+    style = (
+        ".pulse{animation:status 2.6s ease-in-out infinite}"
+        "@keyframes status{0%,100%{opacity:.42}50%{opacity:1}}"
+        "@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:1}}"
+    )
     body = f"""
 <g clip-path="url(#clip)">
-  <rect width="{W}" height="{H}" fill="url(#bg)"/>
-  <rect width="{W}" height="{H}" fill="url(#halo)"/>
-  <g stroke="{C['blue']}" stroke-opacity="0.17" stroke-width="1">{''.join(edges)}</g>
-  {''.join(glows)}
-  {''.join(nodes)}
+  <rect width="{W}" height="{H}" fill="{C['bg1']}"/>
+  <path d="M0 36H1000 M0 214H1000" stroke="{C['line']}" stroke-width="1"/>
+  <rect x="54" y="54" width="4" height="142" rx="2" fill="{C['green']}"/>
+  <circle class="pulse" cx="83" cy="76" r="6" fill="{C['green']}"/>
+  <text x="100" y="81" font-size="12" font-weight="700" letter-spacing="1.8" fill="{C['muted']}">AVAILABLE FOR AI / ML ROLES</text>
+  <text x="82" y="132" font-size="38" font-weight="700" fill="{C['text']}" letter-spacing="-0.5">{esc(NAME)}</text>
+  <text x="82" y="166" font-size="18" font-weight="600" fill="{C['blue']}">{esc(ROLE)}</text>
+  <text x="82" y="198" font-size="14.5" fill="{C['sub']}">{esc(TAGLINE)}</text>
+  <text x="735" y="42" font-size="11" font-weight="700" letter-spacing="1.2" fill="{C['muted']}">BUILDING IN PUBLIC</text>
+  {''.join(cells)}
 </g>
-<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="16" fill="none" stroke="{C['line']}"/>
-<rect x="56" y="60" width="40" height="4" rx="2" fill="url(#ac)"/>
-<text x="56" y="116" font-size="40" font-weight="700" fill="{C['text']}" letter-spacing="-0.6">{esc(NAME)}</text>
-<text x="56" y="156" font-size="22" font-weight="600" fill="url(#ac)">{esc(ROLE)}</text>
-<text x="56" y="190" font-size="15" fill="{C['sub']}">{esc(TAGLINE)}</text>"""
+<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{C['line']}"/>"""
     write("banner.svg", svg(W, H, body, f"{NAME}, {ROLE}", TAGLINE, defs, style))
 
 
@@ -215,7 +223,7 @@ def tech_stack():
             if x + w > x_max:
                 x, y = x0, y + chip_h + gap_y
             parts.append(
-                f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{chip_h}" rx="8" fill="#131E3D" stroke="{C["line"]}"/>'
+                f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{chip_h}" rx="8" fill="{C["chip"]}" stroke="{C["line"]}"/>'
                 f'<circle cx="{x+15:.1f}" cy="{y+chip_h/2}" r="3.5" fill="{C[colour]}"/>'
                 f'<text x="{x+27:.1f}" y="{y+19.5}" font-size="13.5" font-weight="500" fill="{C["text"]}">{esc(s)}</text>')
             x += w + gap_x
@@ -471,26 +479,32 @@ def activity_chart(d):
 
 
 def placeholder_snake():
-    for name, dark in (("snake.svg", False), ("snake-dark.svg", True)):
-        W, H = 830, 150
-        body = (card_bg(W, H, 16) +
-                f'<text x="{W/2}" y="{H/2+5}" text-anchor="middle" font-size="13" fill="{C["muted"]}">'
-                f'Contribution snake is generated by the first workflow run</text>')
-        write(name, svg(W, H, body, "Contribution snake"))
+    W, H = 830, 150
+    body = (card_bg(W, H, 16) +
+            f'<text x="{W/2}" y="{H/2+5}" text-anchor="middle" font-size="13" fill="{C["muted"]}">'
+            f'Contribution snake is generated by the first workflow run</text>')
+    write("snake.svg", svg(W, H, body, "Contribution snake"))
+
+
+def render_themes(renderer):
+    """Create an explicit pair of files for GitHub's light and dark modes."""
+    for theme in ("light", "dark"):
+        set_theme(theme)
+        renderer()
 
 
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "static"
     if cmd == "static":
-        banner(); buttons(); tech_stack()
+        render_themes(lambda: (banner(), buttons(), tech_stack()))
     elif cmd == "reset":
-        stats_card(None); languages_card(None); activity_chart(None); placeholder_snake()
+        render_themes(lambda: (stats_card(None), languages_card(None), activity_chart(None), placeholder_snake()))
     elif cmd == "stats":
         token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
         if not token:
             raise SystemExit("Set GH_TOKEN (the workflow does this automatically).")
         data = summarise(gql(token))
-        stats_card(data); languages_card(data); activity_chart(data)
+        render_themes(lambda: (stats_card(data), languages_card(data), activity_chart(data)))
     else:
         raise SystemExit(__doc__)
 
